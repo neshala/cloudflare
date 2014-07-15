@@ -10,10 +10,10 @@ How-to
 Fetch latest version of cloudflare.php
 Modify that file and update this fields 
 
-	private $cf_user       = 'email@gmail.com'; // your cloudflare login email
+	private $cf_user       = 'email@gmail.com'; // your CF login email
 	private $cf_api_key    = '123456';
 	private $domain        = 'domain.info'; // CF API Key, find it in Account section of CF site
-	private $service_mode  = 1; // Status of CloudFlare Proxy, 1 = orange cloud, 0 = grey cloud
+	private $service_mode  = 1; // Status of CF Proxy, 1 = orange cloud, 0 = grey cloud
 	private $ttl           = 1; // TTL of record in seconds. 1 = Automatic, otherwise, value must in between 120 and 86400 seconds.
 	private $cf_dns_id     = array('*.domain.info', 'pi.domain.info'); // DNS records you have already available on CF site
 
