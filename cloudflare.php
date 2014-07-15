@@ -24,11 +24,11 @@ class cloudFlare {
 
 	private $cf_url        = 'https://www.cloudflare.com/api_json.html';
 	private $cf_user       = 'email@gmail.com';
-	private $cf_api_key    = 'api_key';
-	private $domain        = 'domain.com';
+	private $cf_api_key    = '123456';
+	private $domain        = 'domain.info';
 	private $service_mode  = 1;
 	private $ttl           = 1;
-	private $cf_dns_id     = array('*.nesha.info', 'pi.nesha.info');
+	private $cf_dns_id     = array('*.domain.info', 'pi.domain.info');
 	private $my_current_ip = '';
 
 	function __construct()
@@ -36,10 +36,10 @@ class cloudFlare {
 		$this->my_current_ip = $this->curl('http://myip.dnsomatic.com/');
 	}
 
+	// get dns records and update them if needed
 	public function setDNSRecords() {
+		
 		// first get list of dns records and check is update needed
-		// echo $this->my_current_ip;
-
 		$dns_records = $this->getDNSRecords();
 
 		$updated = '';
@@ -56,6 +56,7 @@ class cloudFlare {
 		return $updated;
 	}
 
+	// update single DNS record
 	private function updateDNS($data = array() )
 	{
 		$params                 = array();
@@ -105,6 +106,7 @@ class cloudFlare {
 		return $result;
 	}
 
+	// fetch remote data via curl
 	private function curl($url = '', $params = array()) {
 		if($url == '')
 			return false;
