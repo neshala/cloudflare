@@ -11,14 +11,7 @@
 
 $cf = new cloudFlare();
 $result = $cf->setDNSRecords();
-if(!empty($result)) {
-	$result = trim($result, ", ");
-	echo "Updated: {$result}";
-}
-else
-{
-	echo "Nothing updated";
-}
+echo $result != '' ? "Updated: {$result}" : "Nothing updated";
 
 class cloudFlare {
 
@@ -52,7 +45,8 @@ class cloudFlare {
 				}
 			}
 		}
-
+		
+		$updated = trim($updated, ", ");
 		return $updated;
 	}
 
