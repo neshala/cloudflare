@@ -12,7 +12,7 @@
 
 $config = [];
 $config['email'] = 'email@gmail.com';
-$config['api_key'] = '4645645645';
+$config['api_key'] = 'your_api_key';
 $config['domain'] = 'domain.com';
 $config['dns_records'] = ['home.domain.com'];
 
